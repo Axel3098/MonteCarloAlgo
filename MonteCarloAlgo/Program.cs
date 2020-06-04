@@ -43,18 +43,13 @@ namespace MonteCarloAlgo
                 Console.WriteLine("{0} wins: {1} , win ratio: {2}%.", player.Name, player.VictoryCount, ratio);
             }
             watch.Stop();
-            OddsRatioCalculation(players);
+
+            Utils utils = new Utils();
+            utils.OddsRatioCalculation(players);
 
             Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms.");
 
             Console.ReadLine();
-        }
-
-        private static void OddsRatioCalculation(List<CL_player> players)
-        {
-            int playersVictories = players.Where(p => !p.IsCroupier).Sum(p => p.VictoryCount);
-            int bankVictories = players.Where(p => p.IsCroupier).Select(p => p.VictoryCount).First();
-            Console.WriteLine("Odds ratio -> (Bank) {0} : {1} (Players).", bankVictories, playersVictories);
         }
     }
 }
