@@ -8,10 +8,6 @@ namespace MonteCarloAlgo
     {
         public List<CL_cards> Deck { get; private set; }
 
-        public CL_cards_games()
-        {
-        }
-
         public void CreateDeck()
         {
             this.Deck = new List<CL_cards>();

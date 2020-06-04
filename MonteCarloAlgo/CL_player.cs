@@ -8,8 +8,8 @@ namespace MonteCarloAlgo
         public bool IsCroupier { get; set; }
         public bool IsWinner { get; set; }
         public string Name { get; set; }
-        public int Score { get; set; } = 0;
-        public int VictoryCount { get; set; } = 0;
+        public int Score { get; set; }
+        public int VictoryCount { get; set; }
 
         public CL_player(bool isCroupier, string name)
         {
