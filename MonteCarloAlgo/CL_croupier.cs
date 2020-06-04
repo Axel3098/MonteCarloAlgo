@@ -40,32 +40,35 @@ namespace MonteCarloAlgo
                 if (player.IsCroupier)
                 {
                     dealtCards = 3;
-                    Console.WriteLine("{0} receives {1} cards.", player.Name, dealtCards);
+                    //Console.WriteLine("{0} receives {1} cards.", player.Name, dealtCards);
                     player.ReceiveCards(deck, dealtCards);
                 }
                 else
                 {
                     dealtCards = 2;
-                    Console.WriteLine("{0} receives {1} cards.", player.Name, dealtCards);
+                    //Console.WriteLine("{0} receives {1} cards.", player.Name, dealtCards);
                     player.ReceiveCards(deck, dealtCards);
                 }
                 deck.RemoveRange(0, dealtCards);
             }
         }
 
-        public CL_player NameWinner(List<CL_player> players)
+        public void NameWinner(List<CL_player> players)
         {
+            CL_player winner = players.Find(p => p.IsWinner);
             if (!players.Exists(p => p.IsWinner))
             {
                 int maxScore = players.Max(p => p.Score);
-                return players.Find(p => p.Score == maxScore);
+                winner = players.Find(p => p.Score == maxScore);
             }
-            return players.Find(p => p.IsWinner);
+            winner.VictoryCount++;
+            winner.IsWinner = false;
+            //Console.WriteLine("And the winner is... {0} with {1} points.", winner.Name, winner.Score);
         }
 
         public List<CL_cards> Shuffle(List<CL_cards> deck)
         {
-            Console.WriteLine("Deck is being shuffling.");
+            //Console.WriteLine("Deck is being shuffling.");
             return deck.OrderBy(x => Guid.NewGuid()).ToList();
         }
     }

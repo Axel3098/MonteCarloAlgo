@@ -14,6 +14,8 @@ namespace MonteCarloAlgo
 
         int Score { get; set; }
 
+        int VictoryCount { get; set; }
+
         void ReceiveCards(List<CL_cards> deck, int number);
     }
 }

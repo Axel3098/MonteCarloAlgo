@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MonteCarloAlgo
 {
@@ -9,7 +8,8 @@ namespace MonteCarloAlgo
         public bool IsCroupier { get; set; }
         public bool IsWinner { get; set; }
         public string Name { get; set; }
-        public int Score { get; set; }
+        public int Score { get; set; } = 0;
+        public int VictoryCount { get; set; } = 0;
 
         public CL_player(bool isCroupier, string name)
         {
@@ -21,10 +21,10 @@ namespace MonteCarloAlgo
         public void ReceiveCards(List<CL_cards> deck, int number)
         {
             this.Hand = deck.GetRange(0, number);
-            foreach (CL_cards card in Hand)
+            /*foreach (CL_cards card in Hand)
             {
                 Console.WriteLine("{0} of {1}.", card.Value, card.Symbol);
-            }
+            }*/
         }
     }
 }

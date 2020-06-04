@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MonteCarloAlgo
 {
@@ -14,15 +15,14 @@ namespace MonteCarloAlgo
         public void CreateDeck()
         {
             this.Deck = new List<CL_cards>();
-            Symbol[] symbols = (Symbol[])Enum.GetValues(typeof(Symbol));
-            for (int i = 0; i < symbols.Length; i++)
+            foreach (Symbol symbol in (Symbol[]) Enum.GetValues(typeof(Symbol)))
             {
                 for (int j = 0; j < 13; j++)
                 {
-                    Deck.Add(new CL_cards(symbols[i], j + 1));
+                    Deck.Add(new CL_cards(symbol, j + 1));
                 }
             }
-            Console.WriteLine("New deck created.");
+            //Console.WriteLine("New deck created.");
         }
     }
 }
