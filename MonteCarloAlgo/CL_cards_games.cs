@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MonteCarloAlgo
 {
@@ -11,7 +10,7 @@ namespace MonteCarloAlgo
         public void CreateDeck()
         {
             this.Deck = new List<CL_cards>();
-            foreach (Symbol symbol in (Symbol[]) Enum.GetValues(typeof(Symbol)))
+            foreach (Symbol symbol in (Symbol[])Enum.GetValues(typeof(Symbol)))
             {
                 for (int j = 0; j < 13; j++)
                 {

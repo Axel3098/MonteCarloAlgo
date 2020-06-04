@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonteCarloAlgo
 {
@@ -16,14 +14,18 @@ namespace MonteCarloAlgo
             Console.WriteLine("Odds ratio -> (Bank) {0} : {1} (Players).", bankVictories / gcd, playersVictories / gcd);
         }
 
-        private int GCD(int a, int b)
+        private static int GCD(int a, int b)
         {
             while (a != 0 && b != 0)
             {
                 if (a > b)
+                {
                     a %= b;
+                }
                 else
+                {
                     b %= a;
+                }
             }
             return a == 0 ? b : a;
         }
